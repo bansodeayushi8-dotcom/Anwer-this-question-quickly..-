@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            padding: 50px;
+        }
+        .letter {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #no {
+            background-color: #ff0000;
+            color: white;
+            position: relative;
+        }
+        .congrats {
+            display: none;
+            font-size: 28px;
+            color: #ff1493;
+            margin-top: 30px;
+        }
+        .cartoons {
+            display: none;
+            margin-top: 20px;
+        }
+        .cartoon {
+            width: 100px;
+            height: 100px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 20px;
+            animation: dance 1s infinite alternate;
+        }
+        @keyframes dance {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter">💌</div>
+    <div class="question">Will you be my Valentine forever?</div>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+    
+    <div class="congrats" id="congrats">
+        Congratulations! You are now loved more. ❤️
+    </div>
+    <div class="cartoons" id="cartoons">
+        <div class="cartoon">Dudu</div>
+        <div class="cartoon">Bubu</div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
+        const congrats = document.getElementById('congrats');
+        const cartoons = document.getElementById('cartoons');
+
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+            noButton.style.position = 'absolute';
+        });
+
+        yesButton.addEventListener('click', () => {
+            document.querySelector('.question').style.display = 'none';
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+            congrats.style.display = 'block';
+            cartoons.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
